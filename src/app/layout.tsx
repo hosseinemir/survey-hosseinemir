@@ -1,6 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
-
+import { vazirFont } from '@/utils/fonts'
 
 
 
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa">
-      <body>{children}</body>
+      <body className={vazirFont.className}>{children}</body>
     </html>
   )
 }
