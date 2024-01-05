@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+button,input,textarea{
+  font-family: inherit;
+}
