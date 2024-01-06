@@ -1,9 +1,11 @@
-import Image from 'next/image'
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>سلام حال شما</h1>
+    <main>
+      <h1 className=" text-white w-16 lg:w-32 xl:w-96 2xl:w-1/2">
+        شروع توسعه پروژه survey
+      </h1>
     </main>
-  )
+  );
 }

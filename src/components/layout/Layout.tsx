@@ -6,10 +6,10 @@ type childrenT = {children : React.ReactNode}
 
 export default function Layout({ children }:childrenT) {
   return (
-    <>
+    <div className="w-screen min-h-screen">
       <Header />
       {children}
-      <Footer />
-    </>
+      <Footer/>
+    </div>
   );
 }
