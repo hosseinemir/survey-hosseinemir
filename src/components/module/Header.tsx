@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import MenuIcon from "./Menu-icon";
+import MenuIcons from "./Menu-icon";
+import ToggleMenu from "./ToggleMenu";
+
 export default function Header() {
   return (
-    <div className="w-screen h-16 flex p-4">
-      <div></div>
-      <div className="w-full flex ">
+    <div className="w-screen h-16 flex">
+      <ToggleMenu/>
+      <div className="w-full hidden md:flex p-8">
         <div className="w-full">
           <ul className="flex justify-around w-full">
-            <li >
+            <li>
               <Link className="text-white" href={"./"}>
                 خانه
               </Link>
@@ -27,7 +29,7 @@ export default function Header() {
             </li>
 
             <li>
-              <Link className="text-white" href={"./create-survey"}>
+              <Link className="text-white" href={"./currunt-offer"}>
                 پکیج های موجود
               </Link>
             </li>
@@ -36,12 +38,10 @@ export default function Header() {
                 دریافت وجه
               </Link>
             </li>
-
-           
           </ul>
         </div>
         <div className="flex pr-3">
-          <MenuIcon/>
+          <MenuIcons />
         </div>
       </div>
     </div>
