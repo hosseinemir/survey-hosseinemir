@@ -8,5 +8,5 @@ export type TmenuItem = {
   title:string,
   uni:string,
   detail?:string,
- 
  }
+ 

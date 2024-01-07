@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Trootlayout) {
   return (
-    <html lang="fa" dir="rtl">
+    <html lang="fa" dir="rtl" >
       <body className={vazirFont.className}>
         <Layout>{children}</Layout>
         
