@@ -1,7 +1,10 @@
 import React from 'react'
+import CreateSurveyT from '../../components/template/CreateSurveyT'
 
-export default function CreatSurvey() {
+export default function CreateSurvey() {
   return (
-    <div>CreatSurvey</div>
+    <>
+    <CreateSurveyT/>
+    </>
   )
 }
