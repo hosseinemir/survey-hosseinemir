@@ -47,7 +47,7 @@ export default function HomePageT() {
       <div>
         ye texture
       </div>
-      <div className="text-sm font-extralight mt-5 md:mt-10 md:w-4/5 m-auto bg-black/35 p-10 rounded-xl shadow-lg">
+      <div className="text-sm font-extralight mt-5 md:mt-10 md:w-4/5 m-auto bg-black/35 p-10 rounded-xl shadow-lg ">
        
         <p>سلام ، من امیرحسینم</p>
         <p>
