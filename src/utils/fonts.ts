@@ -9,12 +9,12 @@ export const vazirFont = localFont({
     },
     {
         path: "../../public/fonts/Vazir-Light.ttf",
-        weight: "400",
+        weight: "300",
         style: "normal",
       },
       {
         path: "../../public/fonts/Vazir-Medium.ttf",
-        weight: "300",
+        weight: "400",
         style: "normal",
       },
       {

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="fixed bottom-0 w-full min-h-[200px] flex items-center justify-center pb-10">
+    <div className="  w-full min-h-[200px] flex items-center justify-center pb-10">
       <div className="w-3/4 min-h-[150px] flex flex-col  items-center justify-start rounded shadow-lg md:flex-row md:items-start md:justify-center bg-gradient-to-b from-[#230925]/50 to-[#39063f]/50">
         <div className="basis-1/2 p-6  flex items-start flex-col">
         <p>هدف ما چیه؟؟!</p>

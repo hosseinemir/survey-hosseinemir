@@ -39,8 +39,8 @@ export default function ToggleMenu() {
       
     </div>
     <div className={`fixed min-h-screen w-screen  bg-black/50 z-50  items-start justify-start ${toggleMenu? 'flex':'hidden'}`} onClick={(e)=>closemodalhandler2(e)}>
-        <div className="mt-2 flex flex-col  bg-black">
-           <div className="m-6 rounded-lg p-10 min-w-[290px]" onClick={e=>propagination(e)}>
+        <div className="mt-2 flex flex-col  bg-black rounded-lg">
+           <div className="m-6 -lg p-10 min-w-[290px]" onClick={e=>propagination(e)}>
            <div onClick={()=>closemodalhandler()}>
            <CloseIcon className="hover:opacity-15"/>
            </div>
