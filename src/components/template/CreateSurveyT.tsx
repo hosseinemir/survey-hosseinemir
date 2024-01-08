@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import SurveyInfo from '../module/SurveyInfo'
+import SurveyQuestions from '../module/SurveyQuestions'
 
 export default function CreateSurveyT() {
   
@@ -17,6 +18,7 @@ export default function CreateSurveyT() {
         </p>
       </div>
       <SurveyInfo/> 
+      <SurveyQuestions/>
     </div>
   )
 }
