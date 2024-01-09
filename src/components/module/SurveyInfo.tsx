@@ -5,7 +5,7 @@ import { SinfoT } from "../../types/types";
 
 export default function SurveyInfo() {
   const [Sinfo, setSinfo] = useState<SinfoT>({
-    sname: "salam",
+    sname: "",
     title: "",
     uni: "",
     detail: "",

@@ -10,3 +10,14 @@ export type TmenuItem = {
   detail?:string,
  }
  
+type answerT = {
+  id:number,
+  title:string
+}
+
+ export type SquestionsT={
+  title:string,
+  img?:string,
+  answer:answerT[]
+
+ }
