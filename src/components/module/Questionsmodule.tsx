@@ -1,17 +1,17 @@
 import Image from "next/image";
 import { SquestionsT } from "../../types/types";
 
-export default function Questionsmodule({ title, img, answer }: SquestionsT) {
+export default function Questionsmodule() {
   return (
     <div>
-      <p>{title}</p>
+      {/* <p>{title}</p>
       {img ? <Image src={img} alt="" /> : null}
       <div>
         {answer.map((item) => (
-          <input type="checkbox" key={item.id} name={item.title} />
+          <input key={item.id} name={item.title} />
         ))}
         <input type="checkbox" name="" id="" />
-      </div>
+      </div> */}
     </div>
   );
 }
