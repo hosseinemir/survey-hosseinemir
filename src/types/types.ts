@@ -21,3 +21,8 @@ type answerT = {
   answer:answerT[]
 
  }
+ export type qandaT={
+  title:string,
+  img:string,
+  answers:string[]
+ }

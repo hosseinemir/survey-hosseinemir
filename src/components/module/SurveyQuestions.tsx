@@ -18,24 +18,25 @@ export default function SurveyQuestions() {
   // ]);
 
   return (
-    <div className="">
-      <p>
+    <div className="w-full flex items-start md:items-center flex-col">
+      <p className="md:w-3/4 mt-5 mr-5 md:mr-0">
         در صورتی که گزینه های شما برای هر سوال یکسان نیست تیک زیر را بردارید.
       </p>
-      <input
-        type="checkbox"
-        name=""
-        id="same"
-        checked={sameQuestion}
-        onChange={(e):void => {
-          setSamequestions(e.target.checked);
-          
-        }}
-      />
-      <label htmlFor="same">گزینه های پاسخ یکسان هستند</label>
-      
-      {sameQuestion? <SameQuestionModue/>:<Questionsmodule/>}
-    
+      <div className="flex  min-w[400px] md:w-3/4 mt-5 mr-5 md:mr-0">
+        <input
+          type="checkbox"
+          name=""
+          id="same"
+          checked={sameQuestion}
+          onChange={(e): void => {
+            setSamequestions(e.target.checked);
+          }}
+          className="ml-4"
+        />
+        <label htmlFor="same">گزینه های پاسخ یکسان هستند</label>
+      </div>
+
+      {sameQuestion ? <SameQuestionModue /> : <Questionsmodule />}
     </div>
   );
 }
