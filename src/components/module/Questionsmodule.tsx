@@ -2,6 +2,9 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { qandaT } from "../../types/types";
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+
 
 export default function Questionsmodule() {
   const qandasaple: qandaT = { title: "", img: "", answers: ["", ""] };
@@ -47,44 +50,46 @@ export default function Questionsmodule() {
     setQandA(newqanda);
   };
   return (
-    <div className="w-full flex flex-col items-start">
+    <div className="w-full flex flex-col items-start md:w-3/4 p-5">
       <p>ابتدا عنوان سوال و سپس گزینه های هر سوال را وارد کنید</p>
       <div className="w-full ">
         {QandA.map((item, index) => (
-          <div key={index}>
+          <div key={index} className="flex flex-col  m-5 p-4 shadow-lg bg-slate-500/10 rounded-md">
             <p>عنوان سوال</p>
-            <div>
+            <div className="flex items-center mt-4 mb-4 w-full">
               <p>{index + 1}</p>
               <input
                 type="text"
                 value={item.title}
-                className="text-black"
+                className="text-black mr-3 p-2 w-4/5 rounded-sm ml-3"
                 onChange={(e) => setinput1value(e, index)}
               />
               <button onClick={() => deletequestionHandler(index)}>
-                delete
+                <DeleteIcon className="hover:text-red-500 hover:text-3xl"/>
               </button>
             </div>
             <div>
-              <p>گزینه های جواب</p>
+              <p className="mt-10">گزینه های جواب</p>
               {item.answers.map((item, index2) => (
-                <div key={index2}>
+                <div key={index2} className="flex w-full mb-5 mt-4 items-center">
                   <p>{index2 + 1}</p>
 
                   <input
                     type="text"
-                    className="text-black"
+                    className="text-black w-1/3 p-2 rounded-sm mr-3 ml-3 "
                     value={item}
                     onChange={(e) => {
                       setinput2value(e, index, index2);
                     }}
+                    
                   />
                   <button
                     onClick={() => {
                       deletesubhandler(index, index2);
                     }}
+                    
                   >
-                    delete
+                    <DeleteIcon className="hover:text-red-500 hover:text-3xl"/>
                   </button>
                 </div>
               ))}
@@ -92,8 +97,9 @@ export default function Questionsmodule() {
                 onClick={() => {
                   addsubqhandler(index);
                 }}
+                className="mr-5"
               >
-                +
+               <AddBoxIcon/>
               </button>
             </div>
           </div>
@@ -102,8 +108,9 @@ export default function Questionsmodule() {
           onClick={() => {
             setQandA([...QandA, qandasaple]);
           }}
+          className="mr-5"
         >
-          +
+          <AddBoxIcon/>
         </button>
       </div>
     </div>

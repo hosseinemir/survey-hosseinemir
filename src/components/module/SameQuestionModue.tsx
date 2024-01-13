@@ -35,13 +35,13 @@ export default function SameQuestionModue() {
     setAnswers(newnewanswer)
   }
   return (
-    <div className='w-full flex flex-col md:w-3/4 p-5'>
+    <div className="w-11/12 flex flex-col items-start md:w-3/4 p-5 m-5 shadow-lg bg-slate-500/10 rounded-md mt-10">
       <p>سوالات خود را وارد کنید</p>
       {allQuestions.map((item, index) => (
-        <div key={index}>
+        <div key={index} className='flex items-center w-full'>
           <p>{index + 1}</p>
           <input
-            className="text-black"
+            className="text-black w-full m-3 p-1 rounded-sm md:w-3/4"
             type="text"
             value={item}
             onChange={(e) => {
@@ -53,40 +53,47 @@ export default function SameQuestionModue() {
               deletequestions(index);
             }}
           >
-           <DeleteIcon/>
+           <DeleteIcon className="hover:text-red-500 hover:text-3xl"/>
           </button>
         </div>
       ))}
-      <div>
+      <div className='flex mt-4 mb-4'>
         <p>اضافه کردن سوال</p>
 
         <button
           onClick={() => {
             addquestionshandler();
           }}
+          className="mr-5"
+
         >
           <AddBoxIcon/>
         </button>
       </div>
       <p>گزینه های پاسخ را وارد کنید</p>
       {answers.map((item, index) => (
-        <div>
+        <div className='flex items-center w-full'>
           <p>{index + 1}</p>
           <input
             type="text"
-            className="text-black"
+            className="text-black w-full m-3 p-1 rounded-sm md:w-3/5"
+
+
             value={answers[index]}
             onChange={(e) => {
               changeAllAnswer(e, index);
             }}
           />
-          <button onClick={()=>{deleteanswerHnadler(index)}}><DeleteIcon/></button>
-        </div>
+          <button onClick={()=>{deleteanswerHnadler(index)}}><DeleteIcon className="hover:text-red-500 hover:text-3xl"/></button>
+        </div >
       ))}
+      <div  className='flex mt-4 mb-4'>
       <p>
         اضافه کردن گزینه سوال
       </p>
       <button onClick={()=>{setAnswers([...answers,""])}}><AddBoxIcon/></button>
+      </div>
+     
     </div>
   );
 }
