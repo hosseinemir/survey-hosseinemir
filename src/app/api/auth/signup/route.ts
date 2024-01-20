@@ -15,9 +15,10 @@ export async function POST(req: NextRequest) {
         { status: 422 }
       );
     }
-    const exsitingUser = await User.findOne({ email });
+    const exsitingUser = await User.findOne({ email:email });
     if (exsitingUser) {
-      NextResponse.json({ error: apienums.USER_EXIST }, { status: 422 });
+      console.log("error")
+       return NextResponse.json({ error: apienums.USER_EXIST }, { status: 422 });
     }
     const hashedpassword = await hashPassword(password);
     const newuser = await User.create({
