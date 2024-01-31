@@ -12,20 +12,26 @@ const SurveySchema = new Schema({
   title: {
     type: String,
     require: true,
+    default:""
   },
-  uni: String,
-  detail: String,
+  uni: {
+    type:String,
+    default:""
+  },
+  detail:{
+    type:String,
+    default:""
+  },
   questions: {
     type: Array,
     require: true,
   },
-  createdAt:{
-    type:Date,
-    default: ()=> Date.now(),
-    immutable:true,
-  }
+  createdAt: {
+    type: Date,
+    default: () => Date.now(),
+    immutable: true,
+  },
 });
 
-const SurveyModel = models.SurveyModel || model("SurveyModel",SurveySchema)
+const SurveyModel = models.SurveyModel || model("SurveyModel", SurveySchema);
 export default SurveyModel;
-
