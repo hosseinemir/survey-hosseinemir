@@ -2,22 +2,23 @@
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import React, { useState } from "react";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { samequestionT } from '../../types/types';
 export default function SameQuestionModue() {
-  const [allQuestions, setAllQuestions] = useState<string[]>([""]);
+  const [allQuestions, setAllQuestions] = useState<samequestionT[]>([{title:"",img:""},{title:"",img:""}]);
   const [answers, setAnswers] = useState<string[]>([""]);
   const changeallquestions: Function = (
     e: React.ChangeEvent<HTMLInputElement>,
     index: number
   ): void => {
-    let allqfunc: string[] = [...allQuestions];
-    allqfunc[index] = e.target.value;
+    let allqfunc: samequestionT[] = [...allQuestions];
+    allqfunc[index].title = e.target.value;
     setAllQuestions(allqfunc);
   };
   const addquestionshandler: Function = (): void => {
-    setAllQuestions([...allQuestions, ""]);
+    setAllQuestions([...allQuestions, {title:"",img:""}]);
   };
   const deletequestions: Function = (index: number): void => {
-    let newquestions: string[] = [...allQuestions];
+    let newquestions: samequestionT[] = [...allQuestions];
     newquestions.splice(index, 1);
     setAllQuestions(newquestions);
   };
@@ -25,9 +26,9 @@ export default function SameQuestionModue() {
     e: React.ChangeEvent<HTMLInputElement>,
     index: number
   ): void => {
-    let newanswerfunc: string[] = [...answers];
-    newanswerfunc[index] = e.target.value;
-    setAnswers(newanswerfunc);
+    let newanswervar: string[] = [...answers];
+    newanswervar[index] = e.target.value;
+    setAnswers(newanswervar);
   };
   const deleteanswerHnadler:Function=(index:number):void=>{
     let newnewanswer:string[]=[...answers]
@@ -43,7 +44,7 @@ export default function SameQuestionModue() {
           <input
             className="text-black w-full m-3 p-1 rounded-sm md:w-3/4"
             type="text"
-            value={item}
+            value={item.title}
             onChange={(e) => {
               changeallquestions(e, index);
             }}
