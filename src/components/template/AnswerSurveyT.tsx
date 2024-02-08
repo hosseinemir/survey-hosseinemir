@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-
+import SurveyDetailsPart from "../module/SurveyDetailsPart";
 const surveyforexapmle = {
   suser: "suser",
   sname: "sname",
@@ -21,7 +21,7 @@ const surveyforexapmle = {
 
 export default function AnswerSurveyT() {
   const [qcounter, setqcounter] = useState<number>(1);
-
+  const [showdetails, setShowdetails] = useState<boolean>(true);
   const fristqHandler = () => {
     setqcounter(1);
   };
@@ -42,16 +42,48 @@ export default function AnswerSurveyT() {
       return;
     }
   };
+  const showdetaishandler = () => {
+    setShowdetails(!showdetails);
+  };
   const buttons = [
-    {id:"1",name:"اولین",func:fristqHandler},
-    {id:"2",name:"قبلی",func:previousqHandler},
-    {id:"3",name:"بعدی",func:nextqHandler},
-    {id:"4",name:"اخرین",func:lastqHandler},
-  ]
+    { id: "1", name: "اولین", func: fristqHandler },
+    { id: "2", name: "قبلی", func: previousqHandler },
+    { id: "3", name: "بعدی", func: nextqHandler },
+    { id: "4", name: "اخرین", func: lastqHandler },
+  ];
   return (
     <div>
       <div>
-        <p>توضیحات</p>
+        {showdetails ? (
+          <button onClick={showdetaishandler}>hide</button>
+        ) : (
+          <button onClick={showdetaishandler}>show</button>
+        )}
+        {showdetails && (
+          <div>
+            <SurveyDetailsPart
+              name={"عنوان پرسشنامه"}
+              data={surveyforexapmle.sname}
+            />
+            {surveyforexapmle.uni && (
+              <SurveyDetailsPart
+                name={"دانشگاه "}
+                data={surveyforexapmle.uni}
+              />
+            )}
+            {surveyforexapmle.title && (
+              <SurveyDetailsPart
+                name={"توضیحات "}
+                data={surveyforexapmle.detail}
+              />
+            )}
+
+            <SurveyDetailsPart
+              name={" تاریخ ایجاد"}
+              data={surveyforexapmle.createdat}
+            />
+          </div>
+        )}
       </div>
 
       <div>
@@ -62,13 +94,15 @@ export default function AnswerSurveyT() {
         <div></div>
 
         <div>
-          {buttons.map(item=>(
-            <button key={item.id} onClick={item.func} className="p-5">{item.name}</button>
+          {buttons.map((item) => (
+            <button
+              key={item.id}
+              onClick={item.func}
+              className="p-2 rounded-md bg-gray-900 m-2 cursor-pointer"
+            >
+              {item.name}
+            </button>
           ))}
-          {/* <button onClick={fristqHandler}>first</button>
-          <button onClick={previousqHandler}>previous</button>
-          <button onClick={nextqHandler}>next</button>
-          <button onClick={lastqHandler}>last</button> */}
         </div>
       </div>
     </div>

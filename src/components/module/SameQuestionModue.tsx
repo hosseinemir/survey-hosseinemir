@@ -73,7 +73,7 @@ export default function SameQuestionModue() {
       </div>
       <p>گزینه های پاسخ را وارد کنید</p>
       {answers.map((item, index) => (
-        <div className='flex items-center w-full'>
+        <div className='flex items-center w-full' key={index}>
           <p>{index + 1}</p>
           <input
             type="text"
