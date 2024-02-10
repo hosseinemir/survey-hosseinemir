@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SurveyDetailsPart from "../module/SurveyDetailsPart";
+import { useranswer } from "../../types/types";
 const surveyforexapmle = {
   suser: "suser",
   sname: "sname",
@@ -22,6 +23,8 @@ const surveyforexapmle = {
 export default function AnswerSurveyT() {
   const [qcounter, setqcounter] = useState<number>(1);
   const [showdetails, setShowdetails] = useState<boolean>(true);
+  const [useranswers, setuseranswers] = useState<useranswer>();
+  // const [chekedarray , setchekedarray]=useState<[boolean]>()
   const fristqHandler = () => {
     setqcounter(1);
   };
@@ -51,6 +54,26 @@ export default function AnswerSurveyT() {
     { id: "3", name: "بعدی", func: nextqHandler },
     { id: "4", name: "اخرین", func: lastqHandler },
   ];
+  // const chekedarrayfunc = (index)=>{
+    
+  //   let newarray = [...chekedarray]
+  //   newarray[index]= !newarray[index]
+    
+  //   setchekedarray()
+  // }
+  useEffect(() => {
+    setuseranswers({ userid: 1, surveyid: 1, answers: [] });
+  }, []);
+  useEffect(() => {
+    let chekeditemcount =
+      surveyforexapmle.questions[qcounter - 1].answer.length || 4;
+    let chekedarray = [];
+
+    for (let i = 0; i < chekeditemcount; i++) {
+      chekedarray.push(false);
+    }
+    console.log(chekedarray)
+  }, [qcounter]);
   return (
     <div>
       <div>
@@ -91,7 +114,16 @@ export default function AnswerSurveyT() {
           <p>{qcounter}</p>
           <p>{surveyforexapmle.questions[qcounter - 1].title}</p>
         </div>
-        <div></div>
+        <div>
+          {surveyforexapmle.questions[qcounter - 1].answer.map(
+            (item, index) => (
+              <div key={index}>
+                <input id={item} type="checkbox" value={item} />
+                <label htmlFor={item}>{item}</label>
+              </div>
+            )
+          )}
+        </div>
 
         <div>
           {buttons.map((item) => (

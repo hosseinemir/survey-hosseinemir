@@ -30,3 +30,10 @@ export type answerT = {
   title:string,
   img:string
  } 
+
+export type useranswer = {
+  userid : number,
+  surveyid:number,
+  answers:[],
+
+}
